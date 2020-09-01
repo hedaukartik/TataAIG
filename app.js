@@ -7,8 +7,8 @@ const cors = require("cors");
 require("dotenv").config();
 
 //import routes
-const authRoutes = require("./routes/auth");
-const userRoutes = require("./routes/user");
+const authRoutes = require("./backend/routes/auth");
+const userRoutes = require("./backend/routes/user");
 
 //app
 const app = express();

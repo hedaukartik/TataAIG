@@ -19,7 +19,7 @@ const Header = () => {
 					</li>
 				</ul>
 				<ul className="navbar-nav ml-auto">
-					{true ? (
+					{false ? (
 						<li className="nav-item">
 							<Link className="nav-link">
 								<div className="nav-link">SIGN OUT</div>

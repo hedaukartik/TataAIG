@@ -77,3 +77,16 @@ exports.getAllMealsForUser = (req, res) => {
 		});
 	});
 };
+
+exports.deleteMealForUser = (req, res) => {
+	console.log("userId", req.params.userId);
+	console.log("mealId", req.params.mealId);
+	Meal.deleteOne({ _id: req.params.mealId }, (err) => {
+		if (err) {
+			return res.status(400).json({
+				err,
+			});
+		}
+		res.json({ message: "Meal deleted successfully." });
+	});
+};

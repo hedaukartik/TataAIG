@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const morgan = require("morgan"); //for development purpose to get the routes requested in console
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
+const cors = require("cors");
 require("dotenv").config();
 
 //import routes
@@ -25,6 +26,7 @@ mongoose
 app.use(morgan("dev"));
 app.use(bodyParser.json());
 app.use(cookieParser());
+app.use(cors());
 
 //routes middleware
 app.use("/api", authRoutes);

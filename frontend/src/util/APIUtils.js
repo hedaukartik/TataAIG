@@ -32,3 +32,11 @@ export function signup(signUpRequest) {
 		body: JSON.stringify(signUpRequest),
 	});
 }
+
+export function signin(loginRequest) {
+	return request({
+		url: API_BASE_URL + "/signin",
+		method: "POST",
+		body: JSON.stringify(loginRequest),
+	});
+}

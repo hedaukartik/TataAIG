@@ -6,6 +6,7 @@ const {
 	userById,
 	addMealForUser,
 	updateMealForUser,
+	getAllMealsForUser,
 } = require("../controllers/user");
 
 router.get("/secret/:userId", requireSignIn, isAuth, (req, res) => {
@@ -20,6 +21,7 @@ router.post(
 	isAuth,
 	updateMealForUser
 );
+router.get("/user/:userId/allMeals", requireSignIn, isAuth, getAllMealsForUser);
 
 router.param("userId", userById);
 

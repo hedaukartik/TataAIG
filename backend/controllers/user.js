@@ -63,3 +63,17 @@ exports.updateMealForUser = (req, res) => {
 		}
 	);
 };
+
+exports.getAllMealsForUser = (req, res) => {
+	console.log(req.params.userId);
+	Meal.find({ user: req.params.userId }, (err, meal) => {
+		if (err) {
+			return res.status(400).json({
+				err,
+			});
+		}
+		res.json({
+			meal,
+		});
+	});
+};

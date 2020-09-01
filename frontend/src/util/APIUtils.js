@@ -40,3 +40,10 @@ export function signin(loginRequest) {
 		body: JSON.stringify(loginRequest),
 	});
 }
+
+export function signout() {
+	return request({
+		url: API_BASE_URL + "/signout",
+		method: "GET",
+	});
+}

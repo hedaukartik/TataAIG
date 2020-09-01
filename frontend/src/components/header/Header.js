@@ -1,11 +1,29 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
+import { connect } from "react-redux";
 import "./Header.styles.scss";
+import { signout } from "../../util/APIUtils";
+import Alert from "react-s-alert";
+import { ACCESS_TOKEN } from "../../constants";
+import { removeUser } from "../../redux/actions/userActions";
 
-const Header = () => {
+const Header = ({ user, removeUser, history }) => {
 	const [isNavCollapsed, setIsNavCollapsed] = useState(true);
 
 	const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
+
+	const logoutCurrentUser = () => {
+		signout()
+			.then((response) => {
+				localStorage.removeItem(ACCESS_TOKEN);
+				removeUser();
+				Alert.success("You are successfully logged out!");
+				history.push("/");
+			})
+			.catch((error) => {
+				Alert.error("Something went wrong. Please try again.");
+			});
+	};
 
 	return (
 		<div className="header">
@@ -37,11 +55,14 @@ const Header = () => {
 								MEALS
 							</Link>
 						</li>
-						{false ? (
+						{user ? (
 							<li className="nav-item">
-								<Link className="nav-link">
-									<div className="nav-link">SIGN OUT</div>
-								</Link>
+								<span
+									className="nav-link"
+									onClick={logoutCurrentUser}
+								>
+									SIGN OUT
+								</span>
 							</li>
 						) : (
 							<>
@@ -64,4 +85,14 @@ const Header = () => {
 	);
 };
 
-export default Header;
+const mapStateToProps = (state) => {
+	return {
+		user: state.user,
+	};
+};
+
+const mapDispatchToProps = (dispatch) => ({
+	removeUser: () => dispatch(removeUser()),
+});
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));

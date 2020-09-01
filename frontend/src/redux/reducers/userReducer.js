@@ -8,6 +8,8 @@ export default function userReducer(state = INITIAL_STATE.user, action) {
 				...state,
 				...action.payload,
 			};
+		case UserActionTypes.REMOVE_USER:
+			return null;
 		default:
 			return state;
 	}

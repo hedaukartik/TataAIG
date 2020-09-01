@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { withRouter } from "react-router-dom";
+import { signup } from "../../util/APIUtils";
 
-const SignUp = () => {
+const SignUp = ({ history }) => {
 	const [request, setRequest] = useState({
 		name: "",
 		email: "",
@@ -14,7 +16,18 @@ const SignUp = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		//const signUpRequest = Object.assign({}, request);
+		const signUpRequest = Object.assign({}, request);
+
+		signup(signUpRequest)
+			.then((response) => {
+				console.log(
+					"You are successfully registered. Please Sign In to continue."
+				);
+				history.push("/signin");
+			})
+			.catch((error) => {
+				console.log("Something went wrong. Please try again.");
+			});
 	};
 
 	return (
@@ -73,4 +86,4 @@ const SignUp = () => {
 	);
 };
 
-export default SignUp;
+export default withRouter(SignUp);

@@ -3,6 +3,7 @@ import { withRouter } from "react-router-dom";
 import { signin } from "../../util/APIUtils";
 import Alert from "react-s-alert";
 import { ACCESS_TOKEN } from "../../constants";
+import { setUser } from "../../redux/actions/userActions";
 
 const SignIn = ({ history }) => {
 	const [request, setRequest] = useState({
@@ -22,6 +23,8 @@ const SignIn = ({ history }) => {
 		signin(loginRequest)
 			.then((response) => {
 				localStorage.setItem(ACCESS_TOKEN, response.token);
+				console.log(response.user);
+				setUser(response.user);
 				Alert.success("You are successfully logged in!");
 				history.push("/");
 			})

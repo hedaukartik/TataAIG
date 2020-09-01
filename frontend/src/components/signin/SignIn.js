@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { withRouter } from "react-router-dom";
+import { connect } from "react-redux";
 import { signin } from "../../util/APIUtils";
 import Alert from "react-s-alert";
 import { ACCESS_TOKEN } from "../../constants";
 import { setUser } from "../../redux/actions/userActions";
 
-const SignIn = ({ history }) => {
+const SignIn = ({ history, setUser }) => {
 	const [request, setRequest] = useState({
 		email: "",
 		password: "",
@@ -77,4 +78,8 @@ const SignIn = ({ history }) => {
 	);
 };
 
-export default withRouter(SignIn);
+const mapDispatchToProps = (dispatch) => ({
+	setUser: (user) => dispatch(setUser(user)),
+});
+
+export default withRouter(connect(null, mapDispatchToProps)(SignIn));

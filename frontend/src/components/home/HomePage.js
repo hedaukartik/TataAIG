@@ -1,14 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
-const HomePage = () => {
+const HomePage = ({ user }) => {
 	return (
 		<div className="jumbotron">
 			<h1>Welcome to your meal analysis</h1>
-			<Link to="signup">Want your meal analysis, sign up!!! </Link>
-			<Link to="meals">Click here to see your meals</Link>
+			{user ? (
+				<Link to="meals">Click here to see your meals</Link>
+			) : (
+				<Link to="signup">Want your meal analysis, sign up!!! </Link>
+			)}
 		</div>
 	);
 };
 
-export default HomePage;
+function mapStateToProps(state) {
+	return {
+		user: state.user,
+	};
+}
+
+export default connect(mapStateToProps, null)(HomePage);

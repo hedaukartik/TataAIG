@@ -4,6 +4,9 @@ import Header from "./components/header/Header";
 import HomePage from "./components/home/HomePage";
 import SignUp from "./components/signup/SignUp";
 import "./App.scss";
+import Alert from "react-s-alert";
+import "react-s-alert/dist/s-alert-default.css";
+import "react-s-alert/dist/s-alert-css-effects/slide.css";
 
 function App() {
 	return (
@@ -13,6 +16,13 @@ function App() {
 				<Route exact path="/" component={HomePage} />
 				<Route path="/signup" component={SignUp} />
 			</Switch>
+			<Alert
+				stack={{ limit: 3 }}
+				timeout={3000}
+				position="top-right"
+				effect="slide"
+				offset={65}
+			/>
 		</div>
 	);
 }

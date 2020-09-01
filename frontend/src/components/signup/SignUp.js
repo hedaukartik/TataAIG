@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { withRouter } from "react-router-dom";
 import { signup } from "../../util/APIUtils";
+import Alert from "react-s-alert";
 
 const SignUp = ({ history }) => {
 	const [request, setRequest] = useState({
@@ -20,13 +21,13 @@ const SignUp = ({ history }) => {
 
 		signup(signUpRequest)
 			.then((response) => {
-				console.log(
+				Alert.success(
 					"You are successfully registered. Please Sign In to continue."
 				);
 				history.push("/signin");
 			})
 			.catch((error) => {
-				console.log("Something went wrong. Please try again.");
+				Alert.error("Something went wrong. Please try again.");
 			});
 	};
 
@@ -34,7 +35,7 @@ const SignUp = ({ history }) => {
 		<div className="container">
 			<form onSubmit={handleSubmit}>
 				<div className="form-group row">
-					<label for="name" className="col-sm-2 col-form-label">
+					<label htmlFor="name" className="col-sm-2 col-form-label">
 						Name
 					</label>
 					<div className="col-sm-10">
@@ -49,7 +50,7 @@ const SignUp = ({ history }) => {
 					</div>
 				</div>
 				<div className="form-group row">
-					<label for="email" className="col-sm-2 col-form-label">
+					<label htmlFor="email" className="col-sm-2 col-form-label">
 						Email
 					</label>
 					<div className="col-sm-10">
@@ -64,7 +65,10 @@ const SignUp = ({ history }) => {
 					</div>
 				</div>
 				<div className="form-group row">
-					<label for="password" className="col-sm-2 col-form-label">
+					<label
+						htmlFor="password"
+						className="col-sm-2 col-form-label"
+					>
 						Password
 					</label>
 					<div className="col-sm-10">

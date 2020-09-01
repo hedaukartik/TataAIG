@@ -14,7 +14,7 @@ const Header = () => {
 					Food Court
 				</Link>
 				<button
-					class="custom-toggler navbar-toggler"
+					className="custom-toggler navbar-toggler"
 					type="button"
 					data-toggle="collapse"
 					data-target="#navbarsExample09"
@@ -23,7 +23,7 @@ const Header = () => {
 					aria-label="Toggle navigation"
 					onClick={handleNavCollapse}
 				>
-					<span class="navbar-toggler-icon"></span>
+					<span className="navbar-toggler-icon"></span>
 				</button>
 				<div
 					className={`${

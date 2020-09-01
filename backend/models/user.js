@@ -22,10 +22,6 @@ const userSchema = new mongoose.Schema(
 			required: true,
 		},
 		salt: String,
-		meals: {
-			type: Array,
-			default: [],
-		},
 	},
 	{ timestamps: true }
 );

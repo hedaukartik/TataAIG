@@ -11,9 +11,7 @@ exports.signup = (req, res) => {
 				err,
 			});
 		}
-		res.json({
-			user,
-		});
+		res.json({ message: "Registered Successfully." });
 	});
 };
 

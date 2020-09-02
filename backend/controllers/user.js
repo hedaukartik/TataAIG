@@ -1,5 +1,8 @@
 const User = require("../models/user");
 const Meal = require("../models/meal");
+const mongoose = require("mongoose");
+
+const castIdToObjectId = (id) => mongoose.Types.ObjectId(id);
 
 exports.userById = (req, res, next, id) => {
 	User.findById(id).exec((err, user) => {
@@ -76,6 +79,39 @@ exports.getAllMealsForUser = (req, res) => {
 			meal,
 		});
 	});
+};
+
+exports.getAggregatedCaloriesByDate = (req, res) => {
+	const userId = castIdToObjectId(req.params.userId);
+	console.log(userId);
+	Meal.aggregate(
+		[
+			{
+				$match: { user: userId },
+			},
+			{
+				$group: {
+					_id: {
+						$dateToString: {
+							format: "%Y-%m-%d",
+							date: "$updatedDate",
+						},
+					},
+					calories: { $sum: "$calories" },
+				},
+			},
+		],
+		(err, caloriesByDate) => {
+			if (err) {
+				return res.status(400).json({
+					err,
+				});
+			}
+			res.json({
+				caloriesByDate,
+			});
+		}
+	);
 };
 
 exports.deleteMealForUser = (req, res) => {

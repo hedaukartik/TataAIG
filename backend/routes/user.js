@@ -8,6 +8,7 @@ const {
 	updateMealForUser,
 	getAllMealsForUser,
 	deleteMealForUser,
+	getAggregatedCaloriesByDate,
 } = require("../controllers/user");
 
 router.get("/secret/:userId", requireSignIn, isAuth, (req, res) => {
@@ -23,6 +24,12 @@ router.post(
 	updateMealForUser
 );
 router.get("/user/:userId/allMeals", requireSignIn, isAuth, getAllMealsForUser);
+router.get(
+	"/user/:userId/aggreagateMeals",
+	requireSignIn,
+	isAuth,
+	getAggregatedCaloriesByDate
+);
 router.delete(
 	"/user/:userId/meal/:mealId/deleteMeal",
 	requireSignIn,

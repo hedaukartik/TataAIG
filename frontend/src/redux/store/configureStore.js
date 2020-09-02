@@ -3,6 +3,7 @@ import { createLogger } from "redux-logger";
 import reduxImmutableStateInvariant from "redux-immutable-state-invariant";
 import rootReducer from "../reducers";
 import INITIAL_STATE from "../reducers/initialState";
+import { persistStore } from "redux-persist";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; // add support for Redux dev tools
 
@@ -19,4 +20,6 @@ export const store = createStore(
 	composeEnhancers(applyMiddleware(...middlewares))
 );
 
-export default { store };
+export const persistor = persistStore(store);
+
+export default { store, persistor };

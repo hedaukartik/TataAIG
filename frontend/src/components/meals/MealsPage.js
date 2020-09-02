@@ -3,12 +3,13 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import { getAggregatedCaloriesByDate } from "../../util/APIUtils";
+import { getAggregatedCaloriesByDate, getAllMeals } from "../../util/APIUtils";
 import "./MealPage.styles.scss";
 
 const MealsPage = ({ user }) => {
 	const [addMealPage, setAddMealPage] = useState(false);
 	const [highlightDates, setHighlightDates] = useState([]);
+	const [mealList, setMealList] = useState([]);
 	const [startDate, setStartDate] = useState(new Date());
 	const highlightDatesWithCaloriesValueFunction = (response) => {
 		console.log(response);
@@ -48,6 +49,17 @@ const MealsPage = ({ user }) => {
 			});
 	}, [user]);
 
+	useEffect(() => {
+		console.log("useEffect2");
+		getAllMeals(user._id)
+			.then((res) => {
+				setMealList(res.meal);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	}, [user]);
+
 	return (
 		<>
 			<div className="container">
@@ -71,7 +83,9 @@ const MealsPage = ({ user }) => {
 						/>
 						{console.log(highlightDates)}
 					</div>
-					<div className="col-lg-8 col-sm-8 col-md-8"></div>
+					<div className="col-lg-8 col-sm-8 col-md-8">
+						{console.log(mealList)}
+					</div>
 				</div>
 			</div>
 		</>

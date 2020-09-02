@@ -54,3 +54,10 @@ export function getAggregatedCaloriesByDate(userId) {
 		method: "GET",
 	});
 }
+
+export function getAllMeals(userId) {
+	return request({
+		url: API_BASE_URL + `/user/${userId}/allMeals`,
+		method: "GET",
+	});
+}

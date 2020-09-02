@@ -16,32 +16,42 @@ const MealList = ({ meals, startDate, onDeleteClick }) => {
 					</tr>
 				</thead>
 				<tbody>
-					{meals.map((meal) => {
-						return (
-							<tr key={meal._id}>
-								<td>
-									<Link
-										to={{
-											pathname: "/meal/" + meal._id,
-											mealRequest: meal,
-										}}
-									>
-										{meal.name}
-									</Link>
-								</td>
+					{meals.length > 0 ? (
+						meals.map((meal) => {
+							return (
+								<tr key={meal._id}>
+									<td>
+										<Link
+											to={{
+												pathname: "/meal/" + meal._id,
+												mealRequest: meal,
+											}}
+										>
+											{meal.name}
+										</Link>
+									</td>
 
-								<td>{meal.calories}</td>
-								<td>
-									<button
-										className="btn btn-outline-danger"
-										onClick={() => onDeleteClick(meal)}
-									>
-										Delete
-									</button>
-								</td>
-							</tr>
-						);
-					})}
+									<td>{meal.calories}</td>
+									<td>
+										<button
+											className="btn btn-outline-danger"
+											onClick={() => onDeleteClick(meal)}
+										>
+											Delete
+										</button>
+									</td>
+								</tr>
+							);
+						})
+					) : (
+						<h5
+							style={{
+								paddingTop: 40,
+							}}
+						>
+							No data for this date
+						</h5>
+					)}
 				</tbody>
 			</table>
 		</>

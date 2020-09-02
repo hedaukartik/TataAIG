@@ -27,7 +27,7 @@ const MealsPage = ({ user }) => {
 		let gt = [];
 		let lt = [];
 		for (let i = 0; i < response.length; i++) {
-			if (response[i].calories >= 700) {
+			if (response[i].calories >= 2000) {
 				console.log(response[i].calories);
 				console.log(response[i]._id);
 				gt.push(new Date(response[i]._id));

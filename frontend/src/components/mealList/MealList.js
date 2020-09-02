@@ -23,6 +23,7 @@ const MealList = ({ meals, startDate }) => {
 									<Link
 										to={{
 											pathname: "/meal/" + meal._id,
+											mealRequest: meal,
 										}}
 									>
 										{meal.name}

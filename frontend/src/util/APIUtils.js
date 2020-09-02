@@ -71,3 +71,11 @@ export function addMeal(mealRequest, userId) {
 		body: JSON.stringify(mealRequest),
 	});
 }
+
+export function updateMeal(mealRequest, userId, mealId) {
+	return request({
+		url: API_BASE_URL + `/user/${userId}/meal/${mealId}/updateMeal`,
+		method: "POST",
+		body: JSON.stringify(mealRequest),
+	});
+}

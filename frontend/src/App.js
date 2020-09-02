@@ -21,6 +21,7 @@ function App() {
 				<Route path="/signin" component={SignIn} />
 				<Route path="/meals" component={MealsPage} />
 				<Route path="/meal" component={ManageMeals} />
+				<Route path="/meal/:mealId" component={ManageMeals} />
 			</Switch>
 			<Alert
 				stack={{ limit: 3 }}

@@ -1,4 +1,5 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -8,9 +9,11 @@ const MealForm = ({
 	onChange,
 	setStartDate,
 	startDate,
+	mealId,
 }) => (
 	<div className="container">
 		<form onSubmit={onSave}>
+			<h2>{mealId ? "Edit" : "Add"} Meal</h2>
 			<div className="form-group row">
 				<label htmlFor="meal" className="col-sm-2 col-form-label">
 					Meal
@@ -59,4 +62,4 @@ const MealForm = ({
 	</div>
 );
 
-export default MealForm;
+export default withRouter(MealForm);

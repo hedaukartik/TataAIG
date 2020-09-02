@@ -63,3 +63,11 @@ export function getAllMeals(userId, requestDate) {
 		method: "GET",
 	});
 }
+
+export function addMeal(mealRequest, userId) {
+	return request({
+		url: API_BASE_URL + `/user/${userId}/addMeal`,
+		method: "POST",
+		body: JSON.stringify(mealRequest),
+	});
+}

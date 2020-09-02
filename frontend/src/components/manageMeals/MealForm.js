@@ -32,7 +32,7 @@ const MealForm = ({
 				</label>
 				<div className="col-sm-10">
 					<input
-						type="text"
+						type="number"
 						className="form-control"
 						name="calories"
 						placeholder="Calories"

@@ -7,7 +7,7 @@ const MealList = ({ meals, startDate }) => {
 	return (
 		<>
 			<h5>{`Meals on ${formatedDate}`}</h5>
-			<table className="table">
+			<table className="table text-center">
 				<thead>
 					<tr>
 						<th>Meal Name</th>

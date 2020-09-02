@@ -76,12 +76,28 @@ const MealsPage = ({ user }) => {
 				<div className="row">
 					<div className="col-lg-4 col-sm-4 col-md-4 text-center">
 						<div>
-							<span style={{ color: "red" }}>Red</span>- High
-							Calories/day
+							<span
+								style={{
+									borderRadius: "0.3rem",
+									backgroundColor: "red",
+									color: "#fff",
+								}}
+							>
+								Red
+							</span>
+							- High Calories/day
 						</div>
 						<div style={{ marginBottom: 30 }}>
-							<span style={{ color: "green" }}>Green</span>- Low
-							Calories/day
+							<span
+								style={{
+									borderRadius: "0.3rem",
+									backgroundColor: "#3dcc4a",
+									color: "#fff",
+								}}
+							>
+								Green
+							</span>
+							- Low Calories/day
 						</div>
 						<DatePicker
 							selected={startDate}

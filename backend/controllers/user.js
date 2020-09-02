@@ -69,7 +69,13 @@ exports.updateMealForUser = (req, res) => {
 
 exports.getAllMealsForUser = (req, res) => {
 	console.log(req.params.userId);
-	Meal.find({ user: req.params.userId }, (err, meal) => {
+	console.log(req.query.requestDate);
+	let query = {};
+	query.user = req.params.userId;
+	if (req.query.requestDate) {
+		query.updatedDate = req.query.requestDate;
+	}
+	Meal.find(query, (err, meal) => {
 		if (err) {
 			return res.status(400).json({
 				err,

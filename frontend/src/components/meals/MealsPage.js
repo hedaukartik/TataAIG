@@ -4,7 +4,11 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import { getAggregatedCaloriesByDate, getAllMeals } from "../../util/APIUtils";
+import {
+	getAggregatedCaloriesByDate,
+	getAllMeals,
+	deleteMeal,
+} from "../../util/APIUtils";
 import "./MealPage.styles.scss";
 
 const MealsPage = ({ user }) => {
@@ -67,6 +71,18 @@ const MealsPage = ({ user }) => {
 			});
 	}, [user, startDate]);
 
+	const handleDeleteMeal = (meal) => {
+		deleteMeal(user._id, meal._id)
+			.then((res) => {
+				setMealList(
+					mealList.filter((mealLi) => mealLi._id !== meal._id)
+				);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	};
+
 	return (
 		<>
 			<div className="container">
@@ -116,7 +132,11 @@ const MealsPage = ({ user }) => {
 						>
 							Add Meal
 						</button>
-						<MealList meals={mealList} startDate={startDate} />
+						<MealList
+							meals={mealList}
+							startDate={startDate}
+							onDeleteClick={handleDeleteMeal}
+						/>
 					</div>
 				</div>
 			</div>

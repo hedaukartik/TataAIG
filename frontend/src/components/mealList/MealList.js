@@ -2,7 +2,7 @@ import React from "react";
 import moment from "moment";
 import { Link } from "react-router-dom";
 
-const MealList = ({ meals, startDate }) => {
+const MealList = ({ meals, startDate, onDeleteClick }) => {
 	const formatedDate = moment(startDate).format("MMM Do YY");
 	return (
 		<>
@@ -32,7 +32,10 @@ const MealList = ({ meals, startDate }) => {
 
 								<td>{meal.calories}</td>
 								<td>
-									<button className="btn btn-outline-danger">
+									<button
+										className="btn btn-outline-danger"
+										onClick={() => onDeleteClick(meal)}
+									>
 										Delete
 									</button>
 								</td>

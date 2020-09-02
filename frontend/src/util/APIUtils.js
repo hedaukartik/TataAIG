@@ -79,3 +79,10 @@ export function updateMeal(mealRequest, userId, mealId) {
 		body: JSON.stringify(mealRequest),
 	});
 }
+
+export function deleteMeal(userId, mealId) {
+	return request({
+		url: API_BASE_URL + `/user/${userId}/meal/${mealId}/deleteMeal`,
+		method: "DELETE",
+	});
+}

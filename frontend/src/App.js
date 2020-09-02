@@ -4,6 +4,7 @@ import Header from "./components/header/Header";
 import HomePage from "./components/home/HomePage";
 import SignUp from "./components/signup/SignUp";
 import SignIn from "./components/signin/SignIn";
+import MealsPage from "./components/meals/MealsPage";
 import "./App.scss";
 import Alert from "react-s-alert";
 import "react-s-alert/dist/s-alert-default.css";
@@ -17,6 +18,7 @@ function App() {
 				<Route exact path="/" component={HomePage} />
 				<Route path="/signup" component={SignUp} />
 				<Route path="/signin" component={SignIn} />
+				<Route path="/meals" component={MealsPage} />
 			</Switch>
 			<Alert
 				stack={{ limit: 3 }}

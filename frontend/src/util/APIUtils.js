@@ -47,3 +47,10 @@ export function signout() {
 		method: "GET",
 	});
 }
+
+export function getAggregatedCaloriesByDate(userId) {
+	return request({
+		url: API_BASE_URL + `/user/${userId}/aggreagateMeals`,
+		method: "GET",
+	});
+}

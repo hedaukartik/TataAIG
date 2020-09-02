@@ -1,5 +1,6 @@
 import React from "react";
 import moment from "moment";
+import { Link } from "react-router-dom";
 
 const MealList = ({ meals, startDate }) => {
 	const formatedDate = moment(startDate).format("MMM Do YY");
@@ -18,7 +19,16 @@ const MealList = ({ meals, startDate }) => {
 					{meals.map((meal) => {
 						return (
 							<tr key={meal._id}>
-								<td>{meal.name}</td>
+								<td>
+									<Link
+										to={{
+											pathname: "/meal/" + meal._id,
+										}}
+									>
+										{meal.name}
+									</Link>
+								</td>
+
 								<td>{meal.calories}</td>
 								<td>
 									<button className="btn btn-outline-danger">

@@ -5,6 +5,7 @@ import HomePage from "./components/home/HomePage";
 import SignUp from "./components/signup/SignUp";
 import SignIn from "./components/signin/SignIn";
 import MealsPage from "./components/meals/MealsPage";
+import ManageMeals from "./components/manageMeals/ManageMeals";
 import "./App.scss";
 import Alert from "react-s-alert";
 import "react-s-alert/dist/s-alert-default.css";
@@ -19,6 +20,7 @@ function App() {
 				<Route path="/signup" component={SignUp} />
 				<Route path="/signin" component={SignIn} />
 				<Route path="/meals" component={MealsPage} />
+				<Route path="/meal" component={ManageMeals} />
 			</Switch>
 			<Alert
 				stack={{ limit: 3 }}

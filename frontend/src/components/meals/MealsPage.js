@@ -74,7 +74,7 @@ const MealsPage = ({ user }) => {
 				<h4 style={{ marginBottom: 40 }}>Meals Daily</h4>
 
 				<div className="row">
-					<div className="col-lg-4 col-sm-4 col-md-4">
+					<div className="col-lg-4 col-sm-4 col-md-4 text-center">
 						<div>
 							<span style={{ color: "red" }}>Red</span>- High
 							Calories/day
@@ -90,7 +90,6 @@ const MealsPage = ({ user }) => {
 							placeholderText="This highlight two ranges with custom classes"
 							inline
 						/>
-						{console.log(highlightDates)}
 					</div>
 					<div className="col-lg-8 col-sm-8 col-md-8">
 						{console.log(mealList)}

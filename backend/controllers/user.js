@@ -1,6 +1,7 @@
 const User = require("../models/user");
 const Meal = require("../models/meal");
 const mongoose = require("mongoose");
+const moment = require("moment");
 
 const castIdToObjectId = (id) => mongoose.Types.ObjectId(id);
 
@@ -19,7 +20,14 @@ exports.userById = (req, res, next, id) => {
 exports.addMealForUser = (req, res) => {
 	const meal = new Meal(req.body);
 	const userId = req.params.userId;
+	console.log("updatedDate", typeof req.body.updatedDate);
+	const ISODate = moment(new Date(req.body.updatedDate)).format(
+		"YYYY-MM-DD[T00:00:00.000Z]"
+	);
+	console.log(ISODate);
 	meal.user = userId;
+	meal.updatedDate = new Date(ISODate);
+	console.log(meal);
 	meal.save((err, meal) => {
 		if (err) {
 			return res.status(400).json({
@@ -50,6 +58,13 @@ exports.addMealForUser = (req, res) => {
 exports.updateMealForUser = (req, res) => {
 	const meal = req.body;
 	const mealId = req.params.mealId;
+	if (req.body.updatedDate) {
+		meal.updatedDate = new Date(
+			moment(new Date(req.body.updatedDate)).format(
+				"YYYY-MM-DD[T00:00:00.000Z]"
+			)
+		);
+	}
 	Meal.findByIdAndUpdate(
 		mealId,
 		{ $set: meal },
@@ -69,12 +84,17 @@ exports.updateMealForUser = (req, res) => {
 
 exports.getAllMealsForUser = (req, res) => {
 	console.log(req.params.userId);
-	console.log(req.query.requestDate);
 	let query = {};
 	query.user = req.params.userId;
 	if (req.query.requestDate) {
-		query.updatedDate = req.query.requestDate;
+		console.log("requestDate", typeof req.query.requestDate);
+		const ISODate = moment(
+			new Date(parseInt(req.query.requestDate))
+		).format("YYYY-MM-DD[T00:00:00.000Z]");
+		console.log("ISODate", ISODate);
+		query.updatedDate = ISODate;
 	}
+	console.log(query);
 	Meal.find(query, (err, meal) => {
 		if (err) {
 			return res.status(400).json({
@@ -89,7 +109,6 @@ exports.getAllMealsForUser = (req, res) => {
 
 exports.getAggregatedCaloriesByDate = (req, res) => {
 	const userId = castIdToObjectId(req.params.userId);
-	console.log(userId);
 	Meal.aggregate(
 		[
 			{

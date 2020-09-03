@@ -48,27 +48,33 @@ const MealsPage = ({ user }) => {
 
 	useEffect(() => {
 		console.log("useEffect");
-		getAggregatedCaloriesByDate(user._id)
-			.then((res) => {
-				console.log(res.caloriesByDate);
-				setHighlightDates(
-					highlightDatesWithCaloriesValueFunction(res.caloriesByDate)
-				);
-			})
-			.catch((err) => {
-				console.log(err);
-			});
+		if (user) {
+			getAggregatedCaloriesByDate(user._id)
+				.then((res) => {
+					console.log(res.caloriesByDate);
+					setHighlightDates(
+						highlightDatesWithCaloriesValueFunction(
+							res.caloriesByDate
+						)
+					);
+				})
+				.catch((err) => {
+					console.log(err);
+				});
+		}
 	}, [user]);
 
 	useEffect(() => {
 		console.log("useEffect2");
-		getAllMeals(user._id, startDate.getTime())
-			.then((res) => {
-				setMealList(res.meal);
-			})
-			.catch((err) => {
-				console.log(err);
-			});
+		if (user) {
+			getAllMeals(user._id, startDate.getTime())
+				.then((res) => {
+					setMealList(res.meal);
+				})
+				.catch((err) => {
+					console.log(err);
+				});
+		}
 	}, [user, startDate]);
 
 	const handleDeleteMeal = (meal) => {

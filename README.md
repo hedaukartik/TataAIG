@@ -1,6 +1,8 @@
 # TataAIG
 # Building A Full-Stack Application of Meal Analyser
 
+https://hedaukartik.github.io/TataAIG/
+
 ## Stack
 
 ### Frontend
@@ -92,5 +94,42 @@
   - Datepicker will represent date with green if that date has calories less than expected and vice versa. This was down using backend api response with date and sumOfCalories aggregated in the response
   - Add Meal and Edit Meal have same component but redirected from different dom. Edit Meal on clicking on meal in table to redirect to Edit Meal where it check of mealId is recieved in props.
   
+## ScreenShots
+
+- **HomePage**
+  ![alt text](https://github.com/hedaukartik/TataAIG/blob/master/images/HomePage.PNG)
+  
+- **SignUp**
+  ![alt text](https://github.com/hedaukartik/TataAIG/blob/master/images/signup.PNG)
+  
+- **Signin**
+  ![alt text](https://github.com/hedaukartik/TataAIG/blob/master/images/signin.PNG)
+  
+- **HomeScreen After Login**
+  ![alt text](https://github.com/hedaukartik/TataAIG/blob/master/images/HomeScreenAfterLogin.PNG)
+  
+- **No meal data for new user**
+  ![alt text](https://github.com/hedaukartik/TataAIG/blob/master/images/No%20Meal%20Data.PNG)
+  
+- **Add Meal**
+  ![alt text](https://github.com/hedaukartik/TataAIG/blob/master/images/Add%20Meal.PNG)
+  
+- **Date display with high as Meal was above 2000**
+  ![alt text](https://github.com/hedaukartik/TataAIG/blob/master/images/Meal%20display%20with%20date%20high.PNG)
+  
+- **Click to Edit Meal**
+  ![alt text](https://github.com/hedaukartik/TataAIG/blob/master/images/click%20to%20Edit.PNG)
+  
+- **Edit Meal Screen already with meal data populated**
+  ![alt text](https://github.com/hedaukartik/TataAIG/blob/master/images/Edit%20Meal.PNG)
+  
+- **List of meal for particular date after adding**
+  ![alt text](https://github.com/hedaukartik/TataAIG/blob/master/images/List%20of%20Meal%20for%2010th.PNG)
+  
+- **Afer signout**
+  ![alt text](https://github.com/hedaukartik/TataAIG/blob/master/images/After%20log%20out.PNG)
+ 
+ 
+## Thank You
   
 

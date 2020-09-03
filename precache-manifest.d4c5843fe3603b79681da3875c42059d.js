@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8a00c0d12eda69186e14d76fd29b2541",
+    "revision": "07619ff7fdd07d0fb02caae4608c2a3b",
     "url": "/TataAIG/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/TataAIG/static/css/2.34a1685c.chunk.css"
   },
   {
-    "revision": "217ac21a24279a22a1f7",
+    "revision": "a5f9a7f4380b5201c527",
     "url": "/TataAIG/static/css/main.ef8575dc.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/TataAIG/static/js/2.572e41fd.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "217ac21a24279a22a1f7",
-    "url": "/TataAIG/static/js/main.935735aa.chunk.js"
+    "revision": "a5f9a7f4380b5201c527",
+    "url": "/TataAIG/static/js/main.9291003f.chunk.js"
   },
   {
     "revision": "486bbc3d94849948d844",

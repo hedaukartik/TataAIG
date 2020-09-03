@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/TataAIG/static/css/main.ef8575dc.chunk.css",
-    "main.js": "/TataAIG/static/js/main.935735aa.chunk.js",
-    "main.js.map": "/TataAIG/static/js/main.935735aa.chunk.js.map",
+    "main.js": "/TataAIG/static/js/main.9291003f.chunk.js",
+    "main.js.map": "/TataAIG/static/js/main.9291003f.chunk.js.map",
     "runtime-main.js": "/TataAIG/static/js/runtime-main.39427e9f.js",
     "runtime-main.js.map": "/TataAIG/static/js/runtime-main.39427e9f.js.map",
     "static/css/2.34a1685c.chunk.css": "/TataAIG/static/css/2.34a1685c.chunk.css",
     "static/js/2.572e41fd.chunk.js": "/TataAIG/static/js/2.572e41fd.chunk.js",
     "static/js/2.572e41fd.chunk.js.map": "/TataAIG/static/js/2.572e41fd.chunk.js.map",
     "index.html": "/TataAIG/index.html",
-    "precache-manifest.0b45c6b3fcced73d2e052007f7776706.js": "/TataAIG/precache-manifest.0b45c6b3fcced73d2e052007f7776706.js",
+    "precache-manifest.d4c5843fe3603b79681da3875c42059d.js": "/TataAIG/precache-manifest.d4c5843fe3603b79681da3875c42059d.js",
     "service-worker.js": "/TataAIG/service-worker.js",
     "static/css/2.34a1685c.chunk.css.map": "/TataAIG/static/css/2.34a1685c.chunk.css.map",
     "static/css/main.ef8575dc.chunk.css.map": "/TataAIG/static/css/main.ef8575dc.chunk.css.map",
@@ -20,6 +20,6 @@
     "static/css/2.34a1685c.chunk.css",
     "static/js/2.572e41fd.chunk.js",
     "static/css/main.ef8575dc.chunk.css",
-    "static/js/main.935735aa.chunk.js"
+    "static/js/main.9291003f.chunk.js"
   ]
 }

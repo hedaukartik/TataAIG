@@ -109,7 +109,7 @@ const MealsPage = ({ user }) => {
 							</span>
 							- High Calories/day
 						</div>
-						<div style={{ marginBottom: 30 }}>
+						<div>
 							<span
 								style={{
 									borderRadius: "0.3rem",
@@ -120,6 +120,9 @@ const MealsPage = ({ user }) => {
 								Green
 							</span>
 							- Low Calories/day
+						</div>
+						<div style={{ marginBottom: 30 }}>
+							Limit: 2000 Calories
 						</div>
 						<DatePicker
 							selected={startDate}

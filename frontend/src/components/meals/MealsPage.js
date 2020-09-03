@@ -93,7 +93,7 @@ const MealsPage = ({ user }) => {
 		<>
 			<div className="container">
 				{addMealPage && <Redirect to="/meal" />}
-				<h4 style={{ marginBottom: 40 }}>Meals Daily</h4>
+				<h5 style={{ marginBottom: 30 }}>Meals Daily</h5>
 
 				<div className="row">
 					<div className="col-lg-4 col-sm-4 col-md-4 text-center">

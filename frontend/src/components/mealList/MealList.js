@@ -44,13 +44,17 @@ const MealList = ({ meals, startDate, onDeleteClick }) => {
 							);
 						})
 					) : (
-						<h5
-							style={{
-								paddingTop: 40,
-							}}
-						>
-							No data for this date
-						</h5>
+						<tr>
+							<td>
+								<h5
+									style={{
+										paddingTop: 40,
+									}}
+								>
+									No data for this date
+								</h5>
+							</td>
+						</tr>
 					)}
 				</tbody>
 			</table>

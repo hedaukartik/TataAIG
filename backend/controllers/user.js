@@ -21,9 +21,10 @@ exports.addMealForUser = (req, res) => {
 	const meal = new Meal(req.body);
 	const userId = req.params.userId;
 	console.log("updatedDate", typeof req.body.updatedDate);
-	const ISODate = moment(req.body.updatedDate).format(
-		"YYYY-MM-DD[T00:00:00.000Z]"
-	);
+	const ISODate = moment
+		.utc(req.body.updatedDate)
+		.utcOffset("+05:30")
+		.format("YYYY-MM-DD[T00:00:00.000Z]");
 	console.log(ISODate);
 	meal.user = userId;
 	meal.updatedDate = ISODate;
@@ -60,7 +61,10 @@ exports.updateMealForUser = (req, res) => {
 	const mealId = req.params.mealId;
 	if (req.body.updatedDate) {
 		meal.updatedDate = new Date(
-			moment(req.body.updatedDate).format("YYYY-MM-DD[T00:00:00.000Z]")
+			moment
+				.utc(req.body.updatedDate)
+				.utcOffset("+05:30")
+				.format("YYYY-MM-DD[T00:00:00.000Z]")
 		);
 	}
 	Meal.findByIdAndUpdate(
@@ -86,9 +90,10 @@ exports.getAllMealsForUser = (req, res) => {
 	query.user = req.params.userId;
 	if (req.query.requestDate) {
 		console.log("requestDate", typeof req.query.requestDate);
-		const ISODate = moment(parseInt(req.query.requestDate)).format(
-			"YYYY-MM-DD[T00:00:00.000Z]"
-		);
+		const ISODate = moment
+			.utc(parseInt(req.query.requestDate))
+			.utcOffset("+05:30")
+			.format("YYYY-MM-DD[T00:00:00.000Z]");
 		console.log("ISODate", ISODate);
 		query.updatedDate = ISODate;
 	}

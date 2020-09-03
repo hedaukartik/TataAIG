@@ -6,6 +6,7 @@ import SignUp from "./components/signup/SignUp";
 import SignIn from "./components/signin/SignIn";
 import MealsPage from "./components/meals/MealsPage";
 import ManageMeals from "./components/manageMeals/ManageMeals";
+import PrivateRoute from "./components/privateRoute/PrivateRoute";
 import "./App.scss";
 import Alert from "react-s-alert";
 import "react-s-alert/dist/s-alert-default.css";
@@ -19,9 +20,9 @@ function App() {
 				<Route exact path="/" component={HomePage} />
 				<Route path="/signup" component={SignUp} />
 				<Route path="/signin" component={SignIn} />
-				<Route path="/meals" component={MealsPage} />
-				<Route path="/meal" component={ManageMeals} />
-				<Route path="/meal/:mealId" component={ManageMeals} />
+				<PrivateRoute path="/meals" component={MealsPage} />
+				<PrivateRoute path="/meal" component={ManageMeals} />
+				<PrivateRoute path="/meal/:mealId" component={ManageMeals} />
 			</Switch>
 			<Alert
 				stack={{ limit: 3 }}

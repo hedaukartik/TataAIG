@@ -1,4 +1,4 @@
-# TataAIG
+# MERN
 # Building A Full-Stack Application of Meal Analyser
 
 https://hedaukartik.github.io/TataAIG/

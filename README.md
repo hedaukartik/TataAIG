@@ -45,34 +45,6 @@
 -   Build an app that can add meal, retrieve all meals of that day, edit meal, and delete meal data in a mongoDB database
 -   Build at datepicker chart to show the days, they go green if the total for that day is less than 2000 calories per day, otherwise they go red.
 
-## Folder structure
-
-- └───TataAIG-master
-    ├───backend
-    │   ├───controllers- *api handling*
-    │   ├───models- *mongoose models for mongoDB*
-    │   └───routes- *api routes*
-    ├───frontend
-    │   ├───public
-    │   └───src
-    │       ├───components
-    │       │   ├───header
-    │       │   ├───home
-    │       │   ├───manageMeals
-    │       │   ├───mealList
-    │       │   ├───meals
-    │       │   ├───privateRoute
-    │       │   ├───signin
-    │       │   └───signup
-    │       ├───constants
-    │       ├───redux
-    │       │   ├───actions
-    │       │   ├───reducers
-    │       │   ├───store
-    │       │   └───types
-    │       └───util
-    └───images
-    
 ## Design decisions
 
 - Database

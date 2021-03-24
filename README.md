@@ -1,5 +1,6 @@
 # MERN
 # Building A Full-Stack Application of Meal Analyser
+![alt text](https://github.com/hedaukartik/TataAIG/blob/master/images/HomePage.PNG)
 
 ## Stack
 
